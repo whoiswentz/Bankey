@@ -32,6 +32,13 @@ class LoginView: UIView {
         return textField
     }()
     
+    let dividerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .secondarySystemFill
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -49,7 +56,10 @@ class LoginView: UIView {
 extension LoginView {
     private func style() {
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .orange
+        backgroundColor = .secondarySystemBackground
+        
+        layer.cornerRadius = 5
+        clipsToBounds = true
     }
     
     private func delegates() {
@@ -59,6 +69,7 @@ extension LoginView {
     
     private func layout() {
         stackView.addArrangedSubview(usernameTextField)
+        stackView.addArrangedSubview(dividerView)
         stackView.addArrangedSubview(passwordTextField)
         addSubview(stackView)
         
@@ -66,7 +77,8 @@ extension LoginView {
             stackView.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 1),
             stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 1),
             trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 1),
-            bottomAnchor.constraint(equalToSystemSpacingBelow: stackView.bottomAnchor, multiplier: 1)
+            bottomAnchor.constraint(equalToSystemSpacingBelow: stackView.bottomAnchor, multiplier: 1),
+            dividerView.heightAnchor.constraint(equalToConstant: 1)
         ])
     }
 }
