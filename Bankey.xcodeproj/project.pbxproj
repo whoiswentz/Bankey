@@ -19,6 +19,7 @@
 		BDE14D872B6AD91D00646553 /* UIViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE14D862B6AD91D00646553 /* UIViewControllerUtils.swift */; };
 		BDE14D892B6AE40900646553 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE14D882B6AE40900646553 /* MainViewController.swift */; };
 		BDE14D8C2B6B08E300646553 /* AccountSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE14D8B2B6B08E300646553 /* AccountSummaryViewController.swift */; };
+		BDE14DC82B6B13F400646553 /* AccountSummaryTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE14DC72B6B13F400646553 /* AccountSummaryTableHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		BDE14D862B6AD91D00646553 /* UIViewControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerUtils.swift; sourceTree = "<group>"; };
 		BDE14D882B6AE40900646553 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BDE14D8B2B6B08E300646553 /* AccountSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryViewController.swift; sourceTree = "<group>"; };
+		BDE14DC72B6B13F400646553 /* AccountSummaryTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryTableHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				BDE14D8B2B6B08E300646553 /* AccountSummaryViewController.swift */,
+				BDE14DC72B6B13F400646553 /* AccountSummaryTableHeader.swift */,
 			);
 			path = AccountSummary;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				BDE14D8C2B6B08E300646553 /* AccountSummaryViewController.swift in Sources */,
 				4FCC6DFB2B618F2F00843649 /* AppDelegate.swift in Sources */,
 				BD922BE72B66C02E005D11F0 /* OnboardingContainerViewController.swift in Sources */,
+				BDE14DC82B6B13F400646553 /* AccountSummaryTableHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
