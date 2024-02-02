@@ -11,39 +11,10 @@ class AccountSummaryTableHeader: UIView {
     let horizontalStack = UIStackView()
     let verticalUIView = UIView()
     let verticalStack = UIStackView()
-    
-    let label: UILabel = {
-       let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Bankey"
-        label.font = UIFont.preferredFont(forTextStyle: .title1)
-        return label
-    }()
-    
-    let label2: UILabel = {
-       let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Good morning,"
-        label.font = UIFont.preferredFont(forTextStyle: .title2)
-        return label
-    }()
-    
-    let label3: UILabel = {
-       let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "name surname"
-        label.font = UIFont.preferredFont(forTextStyle: .title3)
-        return label
-    }()
-    
-    let label4: UILabel = {
-       let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Date"
-        label.font = UIFont.preferredFont(forTextStyle: .title3)
-        return label
-    }()
-    
+    let appNameLabel = UILabel()
+    let greetingsLabel = UILabel()
+    let nameLabel = UILabel()
+    let dateLabel = UILabel()
     let imageView = UIImageView()
     
     override init(frame: CGRect) {
@@ -62,6 +33,22 @@ extension AccountSummaryTableHeader {
     private func style() {
         backgroundColor = .systemTeal
         
+        appNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        appNameLabel.text = "Bankey"
+        appNameLabel.font = UIFont.preferredFont(forTextStyle: .title1)
+        
+        greetingsLabel.translatesAutoresizingMaskIntoConstraints = false
+        greetingsLabel.text = "Good morning,"
+        greetingsLabel.font = UIFont.preferredFont(forTextStyle: .title2)
+        
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.text = "name surname"
+        nameLabel.font = UIFont.preferredFont(forTextStyle: .title3)
+        
+        dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        dateLabel.text = "Date"
+        dateLabel.font = UIFont.preferredFont(forTextStyle: .title3)
+        
         horizontalStack.axis = .horizontal
         horizontalStack.alignment = .top
         horizontalStack.distribution = .fill
@@ -71,8 +58,10 @@ extension AccountSummaryTableHeader {
         verticalStack.alignment = .fill
         verticalStack.distribution = .fill
         
-        let image = UIImage(systemName: "sun.max.fill")
+        let sfConfig = UIImage.SymbolConfiguration(pointSize: 100)
+        let image = UIImage(systemName: "sun.max.fill", withConfiguration: sfConfig)
         imageView.contentMode = .scaleAspectFit
+        imageView.tintColor = .systemYellow
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = image
         
@@ -83,10 +72,10 @@ extension AccountSummaryTableHeader {
         horizontalStack.translatesAutoresizingMaskIntoConstraints = false
         verticalUIView.translatesAutoresizingMaskIntoConstraints = false
         
-        verticalStack.addArrangedSubview(label)
-        verticalStack.addArrangedSubview(label2)
-        verticalStack.addArrangedSubview(label3)
-        verticalStack.addArrangedSubview(label4)
+        verticalStack.addArrangedSubview(appNameLabel)
+        verticalStack.addArrangedSubview(greetingsLabel)
+        verticalStack.addArrangedSubview(nameLabel)
+        verticalStack.addArrangedSubview(dateLabel)
         verticalUIView.addSubview(verticalStack)
         
         NSLayoutConstraint.activate([
@@ -97,8 +86,13 @@ extension AccountSummaryTableHeader {
         ])
         
         horizontalStack.addArrangedSubview(verticalUIView)
-//        horizontalStack.addArrangedSubview(imageView)
+        horizontalStack.addArrangedSubview(imageView)
         addSubview(horizontalStack)
+        
+        NSLayoutConstraint.activate([
+            imageView.trailingAnchor.constraint(equalTo: horizontalStack.trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: horizontalStack.bottomAnchor)
+        ])
 
         NSLayoutConstraint.activate([
             horizontalStack.topAnchor.constraint(equalTo: topAnchor, constant: 16),

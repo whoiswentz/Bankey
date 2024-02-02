@@ -8,7 +8,6 @@
 import UIKit
 
 class AccountSummaryViewController: UIViewController {
-    lazy var header = AccountSummaryTableHeader(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 144))
     let tableView = UITableView()
     
     let games = ["COD", "BF", "RED"]
@@ -22,6 +21,14 @@ class AccountSummaryViewController: UIViewController {
         delegates()
         dataSources()
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let header = AccountSummaryTableHeader(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 144))
+        tableView.tableHeaderView = header
+        header.layoutIfNeeded()
+    }
 }
 
 extension AccountSummaryViewController {
@@ -30,8 +37,6 @@ extension AccountSummaryViewController {
     }
         
     private func layout() {
-        tableView.tableHeaderView = header
-        
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
