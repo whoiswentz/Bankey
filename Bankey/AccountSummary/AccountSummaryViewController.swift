@@ -8,10 +8,9 @@
 import UIKit
 
 class AccountSummaryViewController: UIViewController {
-    let tableView = UITableView()
-    
-    let games = ["COD", "BF", "RED"]
-    
+    var tableView = UITableView()
+    var accounts: [AccountSummaryCell.ViewModel] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,6 +44,10 @@ extension AccountSummaryViewController {
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
+        
+        tableView.register(AccountSummaryCell.self, forCellReuseIdentifier: AccountSummaryCell.reuseIdentifier)
+        tableView.rowHeight = AccountSummaryCell.rowHeight
+        tableView.tableFooterView = UIView()
     }
     
     private func delegates() {
@@ -56,9 +59,17 @@ extension AccountSummaryViewController {
     }
     
     private func setup() {
-        tableView.register(AccountSummaryCell.self, forCellReuseIdentifier: AccountSummaryCell.reuseIdentifier)
-        tableView.rowHeight = AccountSummaryCell.rowHeight
-        tableView.tableFooterView = UIView()
+        fetchData()
+    }
+    
+    private func fetchData() {
+        let savings = AccountSummaryCell.ViewModel(accountType: .Banking, accountName: "Basic Savings")
+        let visa = AccountSummaryCell.ViewModel(accountType: .CreditCard, accountName: "Visa Avion Card")
+        let investment = AccountSummaryCell.ViewModel(accountType: .Investment, accountName: "Tax-Free Saver")
+        
+        accounts.append(savings)
+        accounts.append(visa)
+        accounts.append(investment)
     }
 }
 
@@ -68,13 +79,15 @@ extension AccountSummaryViewController: UITableViewDelegate {
 
 extension AccountSummaryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard !accounts.isEmpty else { return UITableViewCell() }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryCell.reuseIdentifier, for: indexPath) as? AccountSummaryCell else {
             return UITableViewCell()
         }
+        cell.configure(with: accounts[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return games.count
+        return accounts.count
     }
 }
