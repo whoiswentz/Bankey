@@ -12,7 +12,6 @@
 		4FCC6E042B618F3100843649 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FCC6E032B618F3100843649 /* Assets.xcassets */; };
 		4FCC6E072B618F3100843649 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FCC6E052B618F3100843649 /* LaunchScreen.storyboard */; };
 		4FCC6E102B63F8F000843649 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC6E0F2B63F8F000843649 /* LoginView.swift */; };
-		BD45B71F2B688AA700DA7F4A /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD45B71E2B688AA700DA7F4A /* DummyViewController.swift */; };
 		BD45B7222B694D3500DA7F4A /* LocalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD45B7212B694D3500DA7F4A /* LocalState.swift */; };
 		BD922BE72B66C02E005D11F0 /* OnboardingContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD922BE62B66C02E005D11F0 /* OnboardingContainerViewController.swift */; };
 		BD922BE92B67235D005D11F0 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD922BE82B67235D005D11F0 /* OnboardingViewController.swift */; };
@@ -33,7 +32,6 @@
 		4FCC6E062B618F3100843649 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4FCC6E082B618F3100843649 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FCC6E0F2B63F8F000843649 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		BD45B71E2B688AA700DA7F4A /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
 		BD45B7212B694D3500DA7F4A /* LocalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalState.swift; sourceTree = "<group>"; };
 		BD922BE62B66C02E005D11F0 /* OnboardingContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerViewController.swift; sourceTree = "<group>"; };
 		BD922BE82B67235D005D11F0 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 			children = (
 				4FCC6DFE2B618F2F00843649 /* LoginViewController.swift */,
 				4FCC6E0F2B63F8F000843649 /* LoginView.swift */,
-				BD45B71E2B688AA700DA7F4A /* DummyViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -202,7 +199,6 @@
 				4FCC6E102B63F8F000843649 /* LoginView.swift in Sources */,
 				BD45B7222B694D3500DA7F4A /* LocalState.swift in Sources */,
 				BDE14DCC2B6DE6B000646553 /* DecialUtils.swift in Sources */,
-				BD45B71F2B688AA700DA7F4A /* DummyViewController.swift in Sources */,
 				4FCC6DFF2B618F2F00843649 /* LoginViewController.swift in Sources */,
 				BDE14DCE2B6DE71900646553 /* CurrencyFormatter.swift in Sources */,
 				BDE14D872B6AD91D00646553 /* UIViewControllerUtils.swift in Sources */,

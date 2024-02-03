@@ -32,6 +32,7 @@ class AccountSummaryViewController: UIViewController {
 
 extension AccountSummaryViewController {
     private func style() {
+        tableView.backgroundColor = .systemTeal
         tableView.translatesAutoresizingMaskIntoConstraints = false
     }
         
