@@ -16,62 +16,39 @@ protocol LoginViewControllerDelegate: AnyObject {
 }
 
 class LoginViewController: UIViewController {
-    let loginView: LoginView = {
-        let view = LoginView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+
+    let titleLabel = UILabel()
+    let subtitleLabel = UILabel()
     
-    let signInButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.configuration = .filled()
-        button.configuration?.imagePadding = 8
-        button.setTitle("Sign In", for: [])
-        return button
-    }()
-    
-    let errorMessageLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .center
-        label.textColor = .systemRed
-        label.numberOfLines = 0
-        label.isHidden = true
-        return label
-    }()
-    
-    let bankeyTitle: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .center
-        label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
-        label.adjustsFontForContentSizeCategory = true
-        label.text = "Bankey"
-        return label
-    }()
-    
-    let bankeySubtitle: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .center
-        label.font = UIFont.preferredFont(forTextStyle: .title3)
-        label.adjustsFontForContentSizeCategory = true
-        label.numberOfLines = 0
-        label.text = "Your premium source for all things banking!"
-        return label
-    }()
-    
-    lazy var username: String? = loginView.usernameTextField.text
-    lazy var password: String? = loginView.passwordTextField.text
+    let loginView = LoginView()
+    let signInButton = UIButton(type: .system)
+    let errorMessageLabel = UILabel()
     
     weak var delegate: LoginViewControllerDelegate?
     
+    var username: String? {
+        return loginView.usernameTextField.text
+    }
+
+    var password: String? {
+        return loginView.passwordTextField.text
+    }
+    
+    var leadingEdgeOnScreen: CGFloat = 16
+    var leadingEdgeOffScreen: CGFloat = -1000
+    
+    var titleLeadingAnchor: NSLayoutConstraint?
+    var subtitleLeadingAnchor: NSLayoutConstraint?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
         layout()
-        targets()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animate()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -81,42 +58,90 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController {
-    private func style() {
-        
-    }
     
-    private func targets() {
+    private func style() {
+        view.backgroundColor = .systemBackground
+        
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.textAlignment = .center
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        titleLabel.adjustsFontForContentSizeCategory = true
+        titleLabel.text = "Bankey"
+        titleLabel.alpha = 0
+
+        subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        subtitleLabel.textAlignment = .center
+        subtitleLabel.font = UIFont.preferredFont(forTextStyle: .title3)
+        subtitleLabel.adjustsFontForContentSizeCategory = true
+        subtitleLabel.numberOfLines = 0
+        subtitleLabel.text = "Your premium source for all things banking!"
+        subtitleLabel.alpha = 0
+
+        loginView.translatesAutoresizingMaskIntoConstraints = false
+
+        signInButton.translatesAutoresizingMaskIntoConstraints = false
+        signInButton.configuration = .filled()
+        signInButton.configuration?.imagePadding = 8 // for indicator spacing
+        signInButton.setTitle("Sign In", for: [])
         signInButton.addTarget(self, action: #selector(signInTapped), for: .primaryActionTriggered)
+        
+        errorMessageLabel.translatesAutoresizingMaskIntoConstraints = false
+        errorMessageLabel.textAlignment = .center
+        errorMessageLabel.textColor = .systemRed
+        errorMessageLabel.numberOfLines = 0
+        errorMessageLabel.isHidden = true
     }
     
     private func layout() {
+        view.addSubview(titleLabel)
+        view.addSubview(subtitleLabel)
         view.addSubview(loginView)
         view.addSubview(signInButton)
         view.addSubview(errorMessageLabel)
-        view.addSubview(bankeyTitle)
-        view.addSubview(bankeySubtitle)
-        
+
+        // Title
         NSLayoutConstraint.activate([
-            loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            loginView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: loginView.trailingAnchor, multiplier: 1),
+            subtitleLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 3),
+            titleLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor)
+        ])
+            
+        titleLeadingAnchor = titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leadingEdgeOffScreen)
+        titleLeadingAnchor?.isActive = true
+        
+        // Subtitle
+        // Subtitle
+        NSLayoutConstraint.activate([
+            loginView.topAnchor.constraint(equalToSystemSpacingBelow: subtitleLabel.bottomAnchor, multiplier: 3),
+            subtitleLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor)
+        ])
+            
+        subtitleLeadingAnchor = subtitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leadingEdgeOffScreen)
+        subtitleLeadingAnchor?.isActive = true
+        
+        // LoginView
+        NSLayoutConstraint.activate([
+            loginView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: loginView.trailingAnchor, multiplier: 2),
+            view.centerYAnchor.constraint(equalTo: loginView.centerYAnchor),
+        ])
+        
+        // Button
+        NSLayoutConstraint.activate([
             signInButton.topAnchor.constraint(equalToSystemSpacingBelow: loginView.bottomAnchor, multiplier: 2),
             signInButton.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
             signInButton.trailingAnchor.constraint(equalTo: loginView.trailingAnchor),
+        ])
+        
+        // Error message
+        NSLayoutConstraint.activate([
             errorMessageLabel.topAnchor.constraint(equalToSystemSpacingBelow: signInButton.bottomAnchor, multiplier: 2),
-            errorMessageLabel.leadingAnchor.constraint(equalTo: signInButton.leadingAnchor),
-            errorMessageLabel.trailingAnchor.constraint(equalTo: signInButton.trailingAnchor),
-            loginView.topAnchor.constraint(equalToSystemSpacingBelow: bankeySubtitle.bottomAnchor, multiplier: 3),
-            bankeySubtitle.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
-            bankeySubtitle.trailingAnchor.constraint(equalTo: loginView.trailingAnchor),
-            bankeySubtitle.topAnchor.constraint(equalToSystemSpacingBelow: bankeyTitle.bottomAnchor, multiplier: 3),
-            bankeyTitle.leadingAnchor.constraint(equalTo: bankeySubtitle.leadingAnchor),
-            bankeyTitle.trailingAnchor.constraint(equalTo: bankeySubtitle.trailingAnchor)
+            errorMessageLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
+            errorMessageLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor)
         ])
     }
 }
 
-// MARK: - Actions
+// MARK: Actions
 extension LoginViewController {
     @objc func signInTapped(sender: UIButton) {
         errorMessageLabel.isHidden = true
@@ -125,24 +150,52 @@ extension LoginViewController {
     
     private func login() {
         guard let username = username, let password = password else {
-            assertionFailure("username / password should never be nil")
+            assertionFailure("Username / password should never be nil")
             return
         }
-        
+
+        // Temporarily turn off this check
 //        if username.isEmpty || password.isEmpty {
-//            setErrorMessageLabel(withMessage: "username / password cannot be blank")
+//            configureView(withMessage: "Username / password cannot be blank")
+//            return
 //        }
         
         if username == "" && password == "" {
             signInButton.configuration?.showsActivityIndicator = true
             delegate?.didLogin()
         } else {
-            setErrorMessageLabel(withMessage: "Incorrect username / password")
+            configureView(withMessage: "Incorrect username / password")
         }
     }
     
-    private func setErrorMessageLabel(withMessage message: String) {
+    private func configureView(withMessage message: String) {
         errorMessageLabel.isHidden = false
         errorMessageLabel.text = message
+    }
+}
+
+// MARK: - Animations
+extension LoginViewController {
+    private func animate() {
+        let duration = 0.8
+        
+        let animator1 = UIViewPropertyAnimator(duration: duration, curve: .easeInOut) {
+            self.titleLeadingAnchor?.constant = self.leadingEdgeOnScreen
+            self.view.layoutIfNeeded()
+        }
+        animator1.startAnimation()
+        
+        let animator2 = UIViewPropertyAnimator(duration: duration, curve: .easeInOut) {
+            self.subtitleLeadingAnchor?.constant = self.leadingEdgeOnScreen
+            self.view.layoutIfNeeded()
+        }
+        animator2.startAnimation(afterDelay: 0.2)
+        
+        let animator3 = UIViewPropertyAnimator(duration: duration*2, curve: .easeInOut) {
+            self.titleLabel.alpha = 1
+            self.subtitleLabel.alpha = 1
+            self.view.layoutIfNeeded()
+        }
+        animator3.startAnimation(afterDelay: 0.2)
     }
 }

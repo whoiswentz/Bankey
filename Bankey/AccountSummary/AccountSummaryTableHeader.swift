@@ -12,10 +12,21 @@ class AccountSummaryTableHeader: UIView {
     let verticalUIView = UIView()
     let verticalStack = UIStackView()
     let appNameLabel = UILabel()
-    let greetingsLabel = UILabel()
+    let welcomeLabel = UILabel()
     let nameLabel = UILabel()
     let dateLabel = UILabel()
     let imageView = UIImageView()
+    let shakeyBellView = ShakeyBellView()
+    
+    struct ViewModel {
+        let welcomeMessage: String
+        let name: String
+        let date: Date
+        
+        var dateFormated: String {
+            return date.monthDayYearString
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,9 +48,9 @@ extension AccountSummaryTableHeader {
         appNameLabel.text = "Bankey"
         appNameLabel.font = UIFont.preferredFont(forTextStyle: .title1)
         
-        greetingsLabel.translatesAutoresizingMaskIntoConstraints = false
-        greetingsLabel.text = "Good morning,"
-        greetingsLabel.font = UIFont.preferredFont(forTextStyle: .title2)
+        welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
+        welcomeLabel.text = "Good morning,"
+        welcomeLabel.font = UIFont.preferredFont(forTextStyle: .title2)
         
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.text = "name surname"
@@ -71,9 +82,12 @@ extension AccountSummaryTableHeader {
         verticalStack.translatesAutoresizingMaskIntoConstraints = false
         horizontalStack.translatesAutoresizingMaskIntoConstraints = false
         verticalUIView.translatesAutoresizingMaskIntoConstraints = false
+        shakeyBellView.translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(shakeyBellView)
         
         verticalStack.addArrangedSubview(appNameLabel)
-        verticalStack.addArrangedSubview(greetingsLabel)
+        verticalStack.addArrangedSubview(welcomeLabel)
         verticalStack.addArrangedSubview(nameLabel)
         verticalStack.addArrangedSubview(dateLabel)
         verticalUIView.addSubview(verticalStack)
@@ -100,5 +114,18 @@ extension AccountSummaryTableHeader {
             horizontalStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
             horizontalStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ])
+        
+        NSLayoutConstraint.activate([
+            shakeyBellView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            shakeyBellView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+    }
+}
+
+extension AccountSummaryTableHeader {
+    func configure(viewModel: ViewModel) {
+        welcomeLabel.text = viewModel.welcomeMessage
+        nameLabel.text = viewModel.name
+        dateLabel.text = viewModel.dateFormated
     }
 }

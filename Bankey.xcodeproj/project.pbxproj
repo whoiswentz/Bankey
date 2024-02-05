@@ -26,6 +26,9 @@
 		BDE14DDD2B6DF30900646553 /* CurrencyFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE14DDC2B6DF30900646553 /* CurrencyFormatterTests.swift */; };
 		BDE14DDF2B6F018000646553 /* NSNotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE14DDE2B6F018000646553 /* NSNotificationName.swift */; };
 		BDE14DE12B6F037300646553 /* UITextField+SecureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE14DE02B6F037300646553 /* UITextField+SecureToggle.swift */; };
+		BDE14DE62B6F31CA00646553 /* ShakeyBellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE14DE52B6F31CA00646553 /* ShakeyBellView.swift */; };
+		BDE14DE82B6FFF0F00646553 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE14DE72B6FFF0F00646553 /* Date+Utils.swift */; };
+		BDE14DEA2B7000D200646553 /* AccountSummaryViewController+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE14DE92B7000D200646553 /* AccountSummaryViewController+Networking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,9 @@
 		BDE14DDC2B6DF30900646553 /* CurrencyFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatterTests.swift; sourceTree = "<group>"; };
 		BDE14DDE2B6F018000646553 /* NSNotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNotificationName.swift; sourceTree = "<group>"; };
 		BDE14DE02B6F037300646553 /* UITextField+SecureToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+SecureToggle.swift"; sourceTree = "<group>"; };
+		BDE14DE52B6F31CA00646553 /* ShakeyBellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeyBellView.swift; sourceTree = "<group>"; };
+		BDE14DE72B6FFF0F00646553 /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
+		BDE14DE92B7000D200646553 /* AccountSummaryViewController+Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountSummaryViewController+Networking.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,7 @@
 		4FCC6DF92B618F2F00843649 /* Bankey */ = {
 			isa = PBXGroup;
 			children = (
+				BDE14DE42B6F31BE00646553 /* Components */,
 				BDE14D8A2B6B08C800646553 /* AccountSummary */,
 				BD45B7202B694D1200DA7F4A /* Utils */,
 				BD922BE52B65FC97005D11F0 /* Onboarding */,
@@ -133,6 +140,7 @@
 				BDE14DCD2B6DE71900646553 /* CurrencyFormatter.swift */,
 				BDE14DDE2B6F018000646553 /* NSNotificationName.swift */,
 				BDE14DE02B6F037300646553 /* UITextField+SecureToggle.swift */,
+				BDE14DE72B6FFF0F00646553 /* Date+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -152,6 +160,7 @@
 				BDE14D8B2B6B08E300646553 /* AccountSummaryViewController.swift */,
 				BDE14DC72B6B13F400646553 /* AccountSummaryTableHeader.swift */,
 				BDE14DC92B6C354100646553 /* AccountSummaryCell.swift */,
+				BDE14DE92B7000D200646553 /* AccountSummaryViewController+Networking.swift */,
 			);
 			path = AccountSummary;
 			sourceTree = "<group>";
@@ -163,6 +172,14 @@
 				BDE14DDC2B6DF30900646553 /* CurrencyFormatterTests.swift */,
 			);
 			path = BankeyUnitTests;
+			sourceTree = "<group>";
+		};
+		BDE14DE42B6F31BE00646553 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				BDE14DE52B6F31CA00646553 /* ShakeyBellView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +288,8 @@
 				4FCC6DFF2B618F2F00843649 /* LoginViewController.swift in Sources */,
 				BDE14DCE2B6DE71900646553 /* CurrencyFormatter.swift in Sources */,
 				BDE14DE12B6F037300646553 /* UITextField+SecureToggle.swift in Sources */,
+				BDE14DE82B6FFF0F00646553 /* Date+Utils.swift in Sources */,
+				BDE14DEA2B7000D200646553 /* AccountSummaryViewController+Networking.swift in Sources */,
 				BDE14D872B6AD91D00646553 /* UIViewControllerUtils.swift in Sources */,
 				BD922BE92B67235D005D11F0 /* OnboardingViewController.swift in Sources */,
 				BDE14DCA2B6C354100646553 /* AccountSummaryCell.swift in Sources */,
@@ -279,6 +298,7 @@
 				BDE14D8C2B6B08E300646553 /* AccountSummaryViewController.swift in Sources */,
 				4FCC6DFB2B618F2F00843649 /* AppDelegate.swift in Sources */,
 				BD922BE72B66C02E005D11F0 /* OnboardingContainerViewController.swift in Sources */,
+				BDE14DE62B6F31CA00646553 /* ShakeyBellView.swift in Sources */,
 				BDE14DC82B6B13F400646553 /* AccountSummaryTableHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
