@@ -23,6 +23,7 @@ class LoginViewController: UIViewController {
     let loginView = LoginView()
     let signInButton = UIButton(type: .system)
     let errorMessageLabel = UILabel()
+    let passwordResetButton = UIButton(type: .system)
     
     weak var delegate: LoginViewControllerDelegate?
     
@@ -90,6 +91,11 @@ extension LoginViewController {
         errorMessageLabel.textColor = .systemRed
         errorMessageLabel.numberOfLines = 0
         errorMessageLabel.isHidden = true
+        
+        passwordResetButton.translatesAutoresizingMaskIntoConstraints = false
+        passwordResetButton.layer.borderWidth = 0.0
+        passwordResetButton.setTitle("Reset Password", for: [])
+        passwordResetButton.addTarget(self, action: #selector(passwordResetButtonTapped), for: .primaryActionTriggered)
     }
     
     private func layout() {
@@ -98,6 +104,7 @@ extension LoginViewController {
         view.addSubview(loginView)
         view.addSubview(signInButton)
         view.addSubview(errorMessageLabel)
+        view.addSubview(passwordResetButton)
 
         // Title
         NSLayoutConstraint.activate([
@@ -108,7 +115,6 @@ extension LoginViewController {
         titleLeadingAnchor = titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leadingEdgeOffScreen)
         titleLeadingAnchor?.isActive = true
         
-        // Subtitle
         // Subtitle
         NSLayoutConstraint.activate([
             loginView.topAnchor.constraint(equalToSystemSpacingBelow: subtitleLabel.bottomAnchor, multiplier: 3),
@@ -138,6 +144,16 @@ extension LoginViewController {
             errorMessageLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
             errorMessageLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor)
         ])
+        
+        if errorMessageLabel.isHidden {
+            passwordResetButton.topAnchor.constraint(equalToSystemSpacingBelow: errorMessageLabel.bottomAnchor, multiplier: 2).isActive = true
+            passwordResetButton.leadingAnchor.constraint(equalTo: errorMessageLabel.leadingAnchor).isActive = true
+            passwordResetButton.trailingAnchor.constraint(equalTo: errorMessageLabel.trailingAnchor).isActive = true
+        } else {
+            passwordResetButton.topAnchor.constraint(equalToSystemSpacingBelow: signInButton.bottomAnchor, multiplier: 2).isActive = true
+            passwordResetButton.leadingAnchor.constraint(equalTo: signInButton.leadingAnchor).isActive = true
+            passwordResetButton.trailingAnchor.constraint(equalTo: signInButton.trailingAnchor).isActive = true
+        }
     }
 }
 
@@ -146,6 +162,11 @@ extension LoginViewController {
     @objc func signInTapped(sender: UIButton) {
         errorMessageLabel.isHidden = true
         login()
+    }
+    
+    @objc func passwordResetButtonTapped() {
+        let passwordResetViewController = PasswordResetViewController()
+        self.navigationController?.pushViewController(passwordResetViewController, animated: true)
     }
     
     private func login() {

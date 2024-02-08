@@ -50,7 +50,7 @@ extension AppDelegate {
     }
     
     private func displayLogin() {
-        setRootViewController(loginViewController)
+        setRootViewController(UINavigationController(rootViewController: loginViewController))
     }
     
     private func displayNextScreen() {
@@ -84,6 +84,6 @@ extension AppDelegate {
 
 extension AppDelegate: LogoutDelegate {
     @objc func didLogout() {
-        setRootViewController(loginViewController)
+        setRootViewController(UINavigationController(rootViewController: loginViewController))
     }
 }

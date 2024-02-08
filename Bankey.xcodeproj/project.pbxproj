@@ -17,6 +17,8 @@
 		BD922BE92B67235D005D11F0 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD922BE82B67235D005D11F0 /* OnboardingViewController.swift */; };
 		BD9777752B72F0DC00497880 /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9777742B72F0DC00497880 /* ProfileManager.swift */; };
 		BD9777772B72F24400497880 /* AccountSummaryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9777762B72F24400497880 /* AccountSummaryViewControllerTests.swift */; };
+		BD97777A2B7403E600497880 /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9777792B7403E600497880 /* PasswordResetViewController.swift */; };
+		BD97777C2B7464D700497880 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD97777B2B7464D700497880 /* PasswordTextField.swift */; };
 		BDE14D872B6AD91D00646553 /* UIViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE14D862B6AD91D00646553 /* UIViewControllerUtils.swift */; };
 		BDE14D892B6AE40900646553 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE14D882B6AE40900646553 /* MainViewController.swift */; };
 		BDE14D8C2B6B08E300646553 /* AccountSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE14D8B2B6B08E300646553 /* AccountSummaryViewController.swift */; };
@@ -58,6 +60,8 @@
 		BD922BE82B67235D005D11F0 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		BD9777742B72F0DC00497880 /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
 		BD9777762B72F24400497880 /* AccountSummaryViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryViewControllerTests.swift; sourceTree = "<group>"; };
+		BD9777792B7403E600497880 /* PasswordResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
+		BD97777B2B7464D700497880 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		BDE14D862B6AD91D00646553 /* UIViewControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerUtils.swift; sourceTree = "<group>"; };
 		BDE14D882B6AE40900646553 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BDE14D8B2B6B08E300646553 /* AccountSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +120,7 @@
 		4FCC6DF92B618F2F00843649 /* Bankey */ = {
 			isa = PBXGroup;
 			children = (
+				BD9777782B7403CE00497880 /* PasswordReset */,
 				BDE14DE42B6F31BE00646553 /* Components */,
 				BDE14D8A2B6B08C800646553 /* AccountSummary */,
 				BD45B7202B694D1200DA7F4A /* Utils */,
@@ -171,6 +176,14 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		BD9777782B7403CE00497880 /* PasswordReset */ = {
+			isa = PBXGroup;
+			children = (
+				BD9777792B7403E600497880 /* PasswordResetViewController.swift */,
+			);
+			path = PasswordReset;
+			sourceTree = "<group>";
+		};
 		BDE14D8A2B6B08C800646553 /* AccountSummary */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				BDE14DE52B6F31CA00646553 /* ShakeyBellView.swift */,
+				BD97777B2B7464D700497880 /* PasswordTextField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -311,6 +325,8 @@
 				BDE14DE82B6FFF0F00646553 /* Date+Utils.swift in Sources */,
 				BDE14DEA2B7000D200646553 /* AccountSummaryViewController+Networking.swift in Sources */,
 				BDE14D872B6AD91D00646553 /* UIViewControllerUtils.swift in Sources */,
+				BD97777C2B7464D700497880 /* PasswordTextField.swift in Sources */,
+				BD97777A2B7403E600497880 /* PasswordResetViewController.swift in Sources */,
 				BD922BE92B67235D005D11F0 /* OnboardingViewController.swift in Sources */,
 				BD9777752B72F0DC00497880 /* ProfileManager.swift in Sources */,
 				BDE14DEE2B712FE800646553 /* SkeletonCell.swift in Sources */,
