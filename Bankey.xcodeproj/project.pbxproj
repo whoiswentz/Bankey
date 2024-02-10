@@ -19,6 +19,7 @@
 		BD9777772B72F24400497880 /* AccountSummaryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9777762B72F24400497880 /* AccountSummaryViewControllerTests.swift */; };
 		BD97777A2B7403E600497880 /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9777792B7403E600497880 /* PasswordResetViewController.swift */; };
 		BD97777C2B7464D700497880 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD97777B2B7464D700497880 /* PasswordTextField.swift */; };
+		BD9777A12B75A95800497880 /* PasswordCriteriaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9777A02B75A95800497880 /* PasswordCriteriaView.swift */; };
 		BDE14D872B6AD91D00646553 /* UIViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE14D862B6AD91D00646553 /* UIViewControllerUtils.swift */; };
 		BDE14D892B6AE40900646553 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE14D882B6AE40900646553 /* MainViewController.swift */; };
 		BDE14D8C2B6B08E300646553 /* AccountSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE14D8B2B6B08E300646553 /* AccountSummaryViewController.swift */; };
@@ -62,6 +63,7 @@
 		BD9777762B72F24400497880 /* AccountSummaryViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryViewControllerTests.swift; sourceTree = "<group>"; };
 		BD9777792B7403E600497880 /* PasswordResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
 		BD97777B2B7464D700497880 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
+		BD9777A02B75A95800497880 /* PasswordCriteriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCriteriaView.swift; sourceTree = "<group>"; };
 		BDE14D862B6AD91D00646553 /* UIViewControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerUtils.swift; sourceTree = "<group>"; };
 		BDE14D882B6AE40900646553 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BDE14D8B2B6B08E300646553 /* AccountSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +186,14 @@
 			path = PasswordReset;
 			sourceTree = "<group>";
 		};
+		BD97779F2B75A91900497880 /* PasswordStatusView */ = {
+			isa = PBXGroup;
+			children = (
+				BD9777A02B75A95800497880 /* PasswordCriteriaView.swift */,
+			);
+			path = PasswordStatusView;
+			sourceTree = "<group>";
+		};
 		BDE14D8A2B6B08C800646553 /* AccountSummary */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +220,7 @@
 		BDE14DE42B6F31BE00646553 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				BD97779F2B75A91900497880 /* PasswordStatusView */,
 				BDE14DE52B6F31CA00646553 /* ShakeyBellView.swift */,
 				BD97777B2B7464D700497880 /* PasswordTextField.swift */,
 			);
@@ -330,6 +341,7 @@
 				BD922BE92B67235D005D11F0 /* OnboardingViewController.swift in Sources */,
 				BD9777752B72F0DC00497880 /* ProfileManager.swift in Sources */,
 				BDE14DEE2B712FE800646553 /* SkeletonCell.swift in Sources */,
+				BD9777A12B75A95800497880 /* PasswordCriteriaView.swift in Sources */,
 				BDE14DEC2B712ECF00646553 /* SkeletonLoadable.swift in Sources */,
 				BDE14DCA2B6C354100646553 /* AccountSummaryCell.swift in Sources */,
 				BDE14DDF2B6F018000646553 /* NSNotificationName.swift in Sources */,
