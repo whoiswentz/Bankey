@@ -11,8 +11,10 @@ class PasswordResetViewController: UIViewController {
     let stackView = UIStackView()
     
     let newPasswordTextField = PasswordTextField(placeHolderText: "New Password")
+    let confirmPasswsordTextField = PasswordTextField(placeHolderText: "Re-enter Password")
+    let passwordStatusView = PasswordStatusView()
     
-    let passwordCriteriaView = PasswordCriteriaView(text: "uppercase letter (A-Z)")
+    let resetPasswordUIButton = UIButton(type: .system)
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -36,12 +38,22 @@ extension PasswordResetViewController {
         
         newPasswordTextField.translatesAutoresizingMaskIntoConstraints = false
         
-        passwordCriteriaView.translatesAutoresizingMaskIntoConstraints = false
+        passwordStatusView.translatesAutoresizingMaskIntoConstraints = false
+        passwordStatusView.layer.cornerRadius = 5
+        passwordStatusView.clipsToBounds = true
+        
+        confirmPasswsordTextField.translatesAutoresizingMaskIntoConstraints = false
+        
+        resetPasswordUIButton.translatesAutoresizingMaskIntoConstraints = false
+        resetPasswordUIButton.configuration = .filled()
+        resetPasswordUIButton.setTitle("Reset Password", for: [])
     }
     
     private func layout() {
-//        stackView.addArrangedSubview(newPasswordTextField)
-        stackView.addArrangedSubview(passwordCriteriaView)
+        stackView.addArrangedSubview(newPasswordTextField)
+        stackView.addArrangedSubview(passwordStatusView)
+        stackView.addArrangedSubview(confirmPasswsordTextField)
+        stackView.addArrangedSubview(resetPasswordUIButton)
         view.addSubview(stackView)
     
         NSLayoutConstraint.activate([
